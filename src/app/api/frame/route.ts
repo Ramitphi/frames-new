@@ -9,7 +9,7 @@ const NEXT_PUBLIC_URL = "https://frames-new.vercel.app";
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   let accountAddress: string | undefined = "";
-  let text: string | undefined = "";
+  let fid: number | undefined = 0;
 
   const body: FrameRequest = await req.json();
   const { isValid, message } = await getFrameMessage(body, {
@@ -22,15 +22,15 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
   console.log({ body });
 
-  if (body?.untrustedData?.inputText) {
-    text = body.untrustedData.inputText;
+  if (body?.untrustedData?.fid) {
+    fid = body.untrustedData.fid;
   }
 
   return new NextResponse(
     getFrameHtmlResponse({
       buttons: [
         {
-          label: `Text: ${text}`,
+          label: `FiD: ${fid}`,
         },
       ],
       image: `${NEXT_PUBLIC_URL}/park-2.png`,
