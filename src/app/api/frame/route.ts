@@ -13,7 +13,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
   const body: FrameRequest = await req.json();
   const { isValid, message } = await getFrameMessage(body, {
-    neynarApiKey: "NEYNAR_ONCHAIN_KIT",
+    neynarApiKey: "9269D1DF-9073-4D62-96AD-E8AA03CD9C12",
   });
 
   if (isValid) {
