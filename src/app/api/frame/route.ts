@@ -20,6 +20,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     accountAddress = message.interactor.verified_accounts[0];
   }
 
+  console.log({ body });
+
   if (body?.untrustedData?.inputText) {
     text = body.untrustedData.inputText;
   }
