@@ -4,8 +4,9 @@ import {
   getFrameHtmlResponse,
 } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
+import { grantkey } from "../../utils/grantkeys";
 
-const NEXT_PUBLIC_URL = "https://frames-new.vercel.app";
+const NEXT_PUBLIC_URL = "https://87b7-205-254-163-184.ngrok-free.app";
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   let accountAddress: string | undefined = "";
@@ -18,22 +19,42 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
   if (isValid) {
     accountAddress = message.interactor.verified_accounts[0];
+
+    const isGranted = await grantkey(accountAddress);
+
+    if (isGranted) {
+      return new NextResponse(
+        getFrameHtmlResponse({
+          buttons: [
+            {
+              label: `Success`,
+            },
+          ],
+          image: `${NEXT_PUBLIC_URL}/success.png`,
+          post_url: `${NEXT_PUBLIC_URL}/api/frame`,
+        })
+      );
+    }
+    return new NextResponse(
+      getFrameHtmlResponse({
+        buttons: [
+          {
+            label: `Txn Failed`,
+          },
+        ],
+        image: `${NEXT_PUBLIC_URL}/failure.png`,
+        post_url: `${NEXT_PUBLIC_URL}/api/frame`,
+      })
+    );
   }
-
-  console.log({ body });
-
-  if (body?.untrustedData?.fid) {
-    fid = body.untrustedData.fid;
-  }
-
   return new NextResponse(
     getFrameHtmlResponse({
       buttons: [
         {
-          label: `FiD: ${fid}`,
+          label: `Auth Failed`,
         },
       ],
-      image: `${NEXT_PUBLIC_URL}/park-2.png`,
+      image: `${NEXT_PUBLIC_URL}/failure.png`,
       post_url: `${NEXT_PUBLIC_URL}/api/frame`,
     })
   );
