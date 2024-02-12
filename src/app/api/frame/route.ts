@@ -10,7 +10,6 @@ const NEXT_PUBLIC_URL = "https://frames-new.vercel.app/";
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   let accountAddress: string | undefined = "";
-  let fid: number | undefined = 0;
 
   const body: FrameRequest = await req.json();
   const { isValid, message } = await getFrameMessage(body, {
