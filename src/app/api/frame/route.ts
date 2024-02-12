@@ -6,7 +6,7 @@ import {
 import { NextRequest, NextResponse } from "next/server";
 import { grantkey } from "../../utils/grantkeys";
 
-const NEXT_PUBLIC_URL = "https://87b7-205-254-163-184.ngrok-free.app";
+const NEXT_PUBLIC_URL = "https://frames-new.vercel.app/";
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   let accountAddress: string | undefined = "";
