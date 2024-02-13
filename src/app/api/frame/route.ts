@@ -23,11 +23,6 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     if (isGranted) {
       return new NextResponse(
         getFrameHtmlResponse({
-          buttons: [
-            {
-              label: `Success`,
-            },
-          ],
           image: `${NEXT_PUBLIC_URL}/success.png`,
           post_url: `${NEXT_PUBLIC_URL}/api/frame`,
         })
@@ -37,7 +32,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
       getFrameHtmlResponse({
         buttons: [
           {
-            label: `Txn Failed`,
+            label: `Txn Failed or max limit reached`,
           },
         ],
         image: `${NEXT_PUBLIC_URL}/failure.png`,
