@@ -10,7 +10,6 @@ const NEXT_PUBLIC_URL = "https://frames-new.vercel.app/";
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   let accountAddress: string | undefined = "";
-
   const body: FrameRequest = await req.json();
   const { isValid, message } = await getFrameMessage(body, {
     neynarApiKey: "9269D1DF-9073-4D62-96AD-E8AA03CD9C12",
