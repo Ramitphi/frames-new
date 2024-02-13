@@ -9,6 +9,7 @@ export const grantkey = async (recipientAddress) => {
   const unlockAddress = "0xdc8e0d9ce98e81e9b614570becce27fb667ca220";
   const privateKey = process.env.PVT_KEY;
 
+  console.log({ privateKey });
   const client = createPublicClient({
     chain: base,
     transport: http(
