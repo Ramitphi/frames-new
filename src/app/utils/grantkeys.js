@@ -17,6 +17,7 @@ export const grantkey = async (recipientAddress) => {
   });
 
   const account = privateKeyToAccount(`0x${privateKey}`);
+  console.log({ account });
 
   const walletClient = createWalletClient({
     account,
