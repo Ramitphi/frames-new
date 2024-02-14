@@ -6,7 +6,7 @@ import { privateKeyToAccount } from "viem/accounts";
 import { base } from "viem/chains";
 
 export const grantkey = async (recipientAddress) => {
-  const unlockAddress = "0xdc8e0d9ce98e81e9b614570becce27fb667ca220";
+  const unlockAddress = process.env.UnlockAddress;
   const privateKey = process.env.PVT_KEY;
 
   console.log({ privateKey });

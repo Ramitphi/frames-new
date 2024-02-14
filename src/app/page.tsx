@@ -1,15 +1,17 @@
 import { getFrameMetadata } from "@coinbase/onchainkit";
 import type { Metadata } from "next";
 
-const NEXT_PUBLIC_URL = "https://frames-new.vercel.app/";
+const NEXT_PUBLIC_URL = "https://9ec4-171-76-82-77.ngrok-free.app";
 
 const frameMetadata = getFrameMetadata({
   buttons: [
     {
-      label: "Claim",
+      label: "Allowance",
     },
+    { label: "Balance" },
+    { label: "Liquidity  Points" },
   ],
-  image: `${NEXT_PUBLIC_URL}/huddle01.png`,
+  image: `${NEXT_PUBLIC_URL}/degen.png`,
 
   post_url: `${NEXT_PUBLIC_URL}/api/frame`,
 });
