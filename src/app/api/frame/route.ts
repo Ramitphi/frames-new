@@ -10,7 +10,8 @@ import {
   getLiquidityMintingPoints,
 } from "../../utils/degen";
 
-const NEXT_PUBLIC_URL = "https://9ec4-171-76-82-77.ngrok-free.app";
+const NEXT_PUBLIC_URL =
+  "https://frames-new-git-degen-dashboard-ramitphis-projects.vercel.app/";
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   let accountAddress: string | undefined = "";
