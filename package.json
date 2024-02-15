@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@airstack/airstack-react": "^0.6.2",
     "@coinbase/onchainkit": "^0.4.3",
     "@farcaster/core": "^0.13.7",
     "@unlock-protocol/contracts": "^0.0.22",
@@ -18,6 +19,7 @@
     "graphql": "^16.8.1",
     "graphql-request": "^6.1.0",
     "next": "14.1.0",
+    "onchain-friends-sdk": "^0.7.0",
     "react": "^18",
     "react-dom": "^18",
     "viem": "^2.7.2"
