@@ -11,6 +11,7 @@
   "dependencies": {
     "@coinbase/onchainkit": "^0.4.3",
     "@farcaster/core": "^0.13.7",
+    "@huddle01/server-sdk": "^2.0.1",
     "@unlock-protocol/contracts": "^0.0.22",
     "@unlock-protocol/unlock-js": "^0.43.2",
     "ethers": "v5",

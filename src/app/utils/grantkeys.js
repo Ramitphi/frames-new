@@ -6,10 +6,9 @@ import { privateKeyToAccount } from "viem/accounts";
 import { base } from "viem/chains";
 
 export const grantkey = async (recipientAddress) => {
-  const unlockAddress = "0xdc8e0d9ce98e81e9b614570becce27fb667ca220";
+  const unlockAddress = "0x8aa635b923526d26fed8143e57700cc4ba0e2755";
   const privateKey = process.env.PVT_KEY;
 
-  console.log({ privateKey });
   const client = createPublicClient({
     chain: base,
     transport: http(
@@ -18,7 +17,6 @@ export const grantkey = async (recipientAddress) => {
   });
 
   const account = privateKeyToAccount(`0x${privateKey}`);
-  console.log({ account });
 
   const walletClient = createWalletClient({
     account,
@@ -36,7 +34,7 @@ export const grantkey = async (recipientAddress) => {
       args: [
         [recipientAddress],
         [ethers.constants.MaxUint256],
-        ["0x0B561c02AfAAb4060b028254c4Aa03a5646B0F18"],
+        ["0x4C4926B2d1feFa7CceC2888ffCA1e2db98BC42A4"],
       ],
       account,
       chain: base,
@@ -44,7 +42,6 @@ export const grantkey = async (recipientAddress) => {
     const txn = await walletClient.writeContract(request);
     return true;
   } catch (error) {
-    console.error({ error });
-    return false;
+    throw new Error(error);
   }
 };
