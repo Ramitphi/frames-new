@@ -12,12 +12,14 @@ export const getAccount = async (address) => {
     ) {
       Social {
         dappName
-        profileHandle
+        profileName
       }
     }
   }
 `;
 
   const { data, error } = await fetchQuery(query);
-  return data?.Socials?.Social[0]?.profileHandle;
+
+  console.log({ data });
+  return data?.Socials?.Social;
 };

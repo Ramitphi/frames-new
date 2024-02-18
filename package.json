@@ -10,10 +10,11 @@
   },
   "dependencies": {
     "@airstack/airstack-react": "^0.6.2",
-    "@coinbase/onchainkit": "^0.4.3",
+    "@coinbase/onchainkit": "^0.6.2",
     "@farcaster/core": "^0.13.7",
     "@unlock-protocol/contracts": "^0.0.22",
     "@unlock-protocol/unlock-js": "^0.43.2",
+    "@upstash/redis": "^1.28.4",
     "axios": "^1.6.7",
     "ethers": "v5",
     "graphql": "^16.8.1",

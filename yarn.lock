@@ -39,10 +39,10 @@
   dependencies:
     regenerator-runtime "^0.14.0"
 
-"@coinbase/onchainkit@^0.4.3":
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/@coinbase/onchainkit/-/onchainkit-0.4.3.tgz#f6d713c6ce35d0d20b2e204aed8e5e7456b61fed"
-  integrity sha512-9dbiWSgVTk0LxyN1XXVTu7FwHl5f2g8SoesbRqpezl86q0/w6Dcfy/dH5s9DcxG/cQI9I7h8jeuXtALR1Jki9A==
+"@coinbase/onchainkit@^0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@coinbase/onchainkit/-/onchainkit-0.6.2.tgz#293a2199433fa85a585285945a2305e2447b248b"
+  integrity sha512-Nm+dhlnK2uSWZrMRs1BfuHuynBP5isV4fu6ZCNZ5MqOKkJ0CWL45rM/Ek4O/RWEIfjniJtQCWpNwpdgXRS5rjg==
 
 "@eslint-community/eslint-utils@^4.2.0":
   version "4.4.0"
@@ -1062,6 +1062,13 @@
     react-to-print "2.14.15"
     siwe "2.1.4"
 
+"@upstash/redis@^1.28.4":
+  version "1.28.4"
+  resolved "https://registry.yarnpkg.com/@upstash/redis/-/redis-1.28.4.tgz#6f78adbbcf7fe51a66e57a894462fdbd655283bd"
+  integrity sha512-UalkSAny/dz1m8giEhD3Y5ru1o+CPHI32wFyS3MyzDzj2TRvEN+lTw+mPwi20ojk0H2gs8TBW3qsrvwuLLy+pA==
+  dependencies:
+    crypto-js "^4.2.0"
+
 "@xmtp/proto@^3.34.0":
   version "3.42.0"
   resolved "https://registry.yarnpkg.com/@xmtp/proto/-/proto-3.42.0.tgz#5b42a78d3c447f768e535bccc49a32b6f0bf9435"
@@ -1545,6 +1552,11 @@ cross-spawn@^7.0.0, cross-spawn@^7.0.2:
     path-key "^3.1.0"
     shebang-command "^2.0.0"
     which "^2.0.1"
+
+crypto-js@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-4.2.0.tgz#4d931639ecdfd12ff80e8186dba6af2c2e856631"
+  integrity sha512-KALDyEYgpY+Rlob/iriUtjV6d5Eq+Y191A5g4UqLAi8CyGP9N1+FdVbkc1SxKc2r4YAYqG8JzO2KGL+AizD70Q==
 
 cssesc@^3.0.0:
   version "3.0.0"
