@@ -19,6 +19,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     accountAddress = message.interactor.verified_accounts[0];
 
     const meetingLink = await getMeeting(accountAddress);
+    console.log(meetingLink);
 
     return new NextResponse(
       getFrameHtmlResponse({
