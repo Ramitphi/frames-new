@@ -1,7 +1,7 @@
 import { getFrameMetadata } from "@coinbase/onchainkit";
 import type { Metadata } from "next";
 
-const NEXT_PUBLIC_URL = "https://e1ef-205-254-163-183.ngrok-free.app";
+const NEXT_PUBLIC_URL = "https://huddle01-meeting.vercel.app";
 
 const frameMetadata = getFrameMetadata({
   buttons: [

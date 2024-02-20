@@ -6,7 +6,7 @@ import {
 import { NextRequest, NextResponse } from "next/server";
 import { getMeeting } from "../../utils/getMeeting";
 
-const NEXT_PUBLIC_URL = "https://e1ef-205-254-163-183.ngrok-free.app";
+const NEXT_PUBLIC_URL = "https://huddle01-meeting.vercel.app";
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   let accountAddress: string | undefined = "";
