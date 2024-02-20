@@ -4,9 +4,9 @@ import {
   getFrameHtmlResponse,
 } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
-import { grantkey } from "../../utils/grantkeys";
+import { getMeeting } from "../../utils/getMeeting";
 
-const NEXT_PUBLIC_URL = "https://frames-new.vercel.app/";
+const NEXT_PUBLIC_URL = "https://e1ef-205-254-163-183.ngrok-free.app";
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   let accountAddress: string | undefined = "";
@@ -18,24 +18,18 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   if (isValid) {
     accountAddress = message.interactor.verified_accounts[0];
 
-    const isGranted = await grantkey(accountAddress);
+    const meetingLink = await getMeeting(accountAddress);
 
-    if (isGranted) {
-      return new NextResponse(
-        getFrameHtmlResponse({
-          image: `${NEXT_PUBLIC_URL}/success.png`,
-          post_url: `${NEXT_PUBLIC_URL}/api/frame`,
-        })
-      );
-    }
     return new NextResponse(
       getFrameHtmlResponse({
         buttons: [
           {
-            label: `Txn Failed or max limit reached`,
+            action: "link",
+            label: `Meeting Link`,
+            target: `https://app.huddle01.com/${meetingLink}`,
           },
         ],
-        image: `${NEXT_PUBLIC_URL}/failure.png`,
+        image: `${NEXT_PUBLIC_URL}/Huddle01.png`,
         post_url: `${NEXT_PUBLIC_URL}/api/frame`,
       })
     );

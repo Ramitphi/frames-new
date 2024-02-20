@@ -24,10 +24,10 @@
   dependencies:
     regenerator-runtime "^0.14.0"
 
-"@coinbase/onchainkit@^0.4.3":
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/@coinbase/onchainkit/-/onchainkit-0.4.3.tgz#f6d713c6ce35d0d20b2e204aed8e5e7456b61fed"
-  integrity sha512-9dbiWSgVTk0LxyN1XXVTu7FwHl5f2g8SoesbRqpezl86q0/w6Dcfy/dH5s9DcxG/cQI9I7h8jeuXtALR1Jki9A==
+"@coinbase/onchainkit@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@coinbase/onchainkit/-/onchainkit-0.7.0.tgz#b89a54ce433e2964f61514402ff7743c982a3a93"
+  integrity sha512-aDSHdn+az7cVYsR5SXMR1rC06CemNLLjH7duIyeD3LMv+x2vIE5qGMvYvU56SYxV6OQVl4Licq7ApUjALzIQvw==
 
 "@eslint-community/eslint-utils@^4.2.0":
   version "4.4.0"

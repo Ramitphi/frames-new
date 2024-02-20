@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@coinbase/onchainkit": "^0.4.3",
+    "@coinbase/onchainkit": "^0.7.0",
     "@farcaster/core": "^0.13.7",
     "@unlock-protocol/contracts": "^0.0.22",
     "@unlock-protocol/unlock-js": "^0.43.2",
