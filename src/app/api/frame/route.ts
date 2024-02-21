@@ -4,9 +4,10 @@ import {
   getFrameHtmlResponse,
 } from "@coinbase/onchainkit";
 import { NextRequest, NextResponse } from "next/server";
-import { grantkey } from "../../utils/grantkeys";
+import { getBidding } from "../../utils/getBidding";
+import { getNFTImageUrl } from "../../utils/getNFTImageUrl";
 
-const NEXT_PUBLIC_URL = "https://frames-new.vercel.app/";
+const NEXT_PUBLIC_URL = "https://13ec-103-59-75-39.ngrok-free.app";
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   let accountAddress: string | undefined = "";
@@ -18,24 +19,23 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   if (isValid) {
     accountAddress = message.interactor.verified_accounts[0];
 
-    const isGranted = await grantkey(accountAddress);
+    const { tokenId, price } = await getBidding();
+    const metadata = await getNFTImageUrl(tokenId);
+    console.log({ metadata });
 
-    if (isGranted) {
-      return new NextResponse(
-        getFrameHtmlResponse({
-          image: `${NEXT_PUBLIC_URL}/success.png`,
-          post_url: `${NEXT_PUBLIC_URL}/api/frame`,
-        })
-      );
-    }
     return new NextResponse(
       getFrameHtmlResponse({
         buttons: [
           {
-            label: `Txn Failed or max limit reached`,
+            label: `Place Bid`,
+            action: "link",
+            target: `https://nouns.build/dao/base/0xFBfe187b444798214Dd4BbfAdE369F8DC3864C6a/${tokenId}?tab=contracts`,
+          },
+          {
+            label: `Current Bid: ${price}ETH`,
           },
         ],
-        image: `${NEXT_PUBLIC_URL}/failure.png`,
+        image: metadata,
         post_url: `${NEXT_PUBLIC_URL}/api/frame`,
       })
     );
