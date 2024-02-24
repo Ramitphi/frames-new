@@ -3,11 +3,13 @@ import {
   getFrameMessage,
   getFrameHtmlResponse,
 } from "@coinbase/onchainkit";
-import { NextRequest, NextResponse } from "next/server";
-import { getBidding } from "../../utils/getBidding";
-import { getNFTImageUrl } from "../../utils/getNFTImageUrl";
 
-const NEXT_PUBLIC_URL = "https://13ec-103-59-75-39.ngrok-free.app";
+import { NextRequest, NextResponse } from "next/server";
+import { getCasts } from "../../utils/getCasts";
+import { getWorldCloud } from "../../utils/getWordCloud";
+import { getImageUrl } from "../../utils/getImageUrl";
+
+const NEXT_PUBLIC_URL = "https://125e-103-59-75-203.ngrok-free.app";
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   let accountAddress: string | undefined = "";
@@ -18,24 +20,24 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
   if (isValid) {
     accountAddress = message.interactor.verified_accounts[0];
+    console.log({ accountAddress });
 
-    const { tokenId, price } = await getBidding();
-    const metadata = await getNFTImageUrl(tokenId);
-    console.log({ metadata });
+    const data = await getCasts(2391);
+    console.log({ data });
+
+    const res = await getWorldCloud(data);
+    console.log({ res });
+
+    const cloudImage = await getImageUrl(res);
 
     return new NextResponse(
       getFrameHtmlResponse({
         buttons: [
           {
-            label: `Place Bid`,
-            action: "link",
-            target: `https://nouns.build/dao/base/0xFBfe187b444798214Dd4BbfAdE369F8DC3864C6a/${tokenId}?tab=contracts`,
-          },
-          {
-            label: `Current Bid: ${price}ETH`,
+            label: `Show Cloud`,
           },
         ],
-        image: metadata,
+        image: `${cloudImage}`,
         post_url: `${NEXT_PUBLIC_URL}/api/frame`,
       })
     );

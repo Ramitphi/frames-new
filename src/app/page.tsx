@@ -1,15 +1,15 @@
 import { getFrameMetadata } from "@coinbase/onchainkit";
 import type { Metadata } from "next";
 
-const NEXT_PUBLIC_URL = "https://13ec-103-59-75-39.ngrok-free.app";
+const NEXT_PUBLIC_URL = "https://125e-103-59-75-203.ngrok-free.app";
 
 const frameMetadata = getFrameMetadata({
   buttons: [
     {
-      label: "Show Bid",
+      label: "Create Word Cast",
     },
   ],
-  image: `${NEXT_PUBLIC_URL}/members.png`,
+  image: `${NEXT_PUBLIC_URL}/success.png`,
 
   post_url: `${NEXT_PUBLIC_URL}/api/frame`,
 });
@@ -28,5 +28,5 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <>Members go up</>;
+  return <>nhj </>;
 }
