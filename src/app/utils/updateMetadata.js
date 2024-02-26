@@ -6,11 +6,10 @@ import { http, createWalletClient, createPublicClient } from "viem";
 import { privateKeyToAccount } from "viem/accounts";
 import { base } from "viem/chains";
 
-export const grantkey = async (recipientAddress, img) => {
+export const updateMetadata = async (recipientAddress, img) => {
   const unlockAddress = "0xa5efd9aba615b8056e2886cfb0c4898b60748cdd";
   const privateKey = process.env.PVT_KEY;
 
-  console.log({ privateKey });
   const client = createPublicClient({
     chain: base,
     transport: http(
@@ -56,12 +55,16 @@ export const grantkey = async (recipientAddress, img) => {
 
     console.log(accessToken);
     // Save the metadata in locksmith
-    const p = await service.updateUserMetadata(
+    const p = await service.updateKeyMetadata(
       8453,
       unlockAddress,
-      recipientAddress,
+      1,
       {
-        metadata: { public: img }, // Assuming all fields are protected
+        metadata: {
+          name: "Word Cloud",
+          description: "Word Cloud based on Casts",
+          image: img,
+        }, // Assuming all fields are protected
       },
       {
         headers: {
@@ -70,24 +73,6 @@ export const grantkey = async (recipientAddress, img) => {
       }
     );
 
-    console.log({ f: p.data.metadata.public });
-    // Grant the key
-
-    // const { request } = await client.simulateContract({
-    //   address: unlockAddress,
-    //   abi: PublicLockV13.abi,
-    //   functionName: "grantKeys",
-    //   args: [
-    //     [recipientAddress],
-    //     [ethers.constants.MaxUint256],
-    //     ["0x4C4926B2d1feFa7CceC2888ffCA1e2db98BC42A4"],
-    //   ],
-    //   account,
-    //   chain: base,
-    // });
-    // console.log({ request });
-    // const txn = await walletClient.writeContract(request);
-    // console.log({ txn });
     return true;
   } catch (error) {
     console.error({ error });
