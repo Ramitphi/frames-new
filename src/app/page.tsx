@@ -1,15 +1,15 @@
 import { getFrameMetadata } from "@coinbase/onchainkit";
 import type { Metadata } from "next";
 
-const NEXT_PUBLIC_URL = "https://125e-103-59-75-203.ngrok-free.app";
+const NEXT_PUBLIC_URL = "https://05fa-103-59-75-143.ngrok-free.app";
 
 const frameMetadata = getFrameMetadata({
   buttons: [
     {
-      label: "Create Word Cast",
+      label: "Create Word Cast (Click Twice)",
     },
   ],
-  image: `${NEXT_PUBLIC_URL}/success.png`,
+  image: `${NEXT_PUBLIC_URL}/wordcloud.png`,
 
   post_url: `${NEXT_PUBLIC_URL}/api/frame`,
 });
@@ -28,5 +28,5 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <>nhj </>;
+  return <>Generates word cloud </>;
 }

@@ -1328,6 +1328,13 @@
     react-to-print "2.14.15"
     siwe "2.1.4"
 
+"@upstash/redis@^1.28.4":
+  version "1.28.4"
+  resolved "https://registry.yarnpkg.com/@upstash/redis/-/redis-1.28.4.tgz#6f78adbbcf7fe51a66e57a894462fdbd655283bd"
+  integrity sha512-UalkSAny/dz1m8giEhD3Y5ru1o+CPHI32wFyS3MyzDzj2TRvEN+lTw+mPwi20ojk0H2gs8TBW3qsrvwuLLy+pA==
+  dependencies:
+    crypto-js "^4.2.0"
+
 "@web-std/blob@^3.0.1", "@web-std/blob@^3.0.3":
   version "3.0.5"
   resolved "https://registry.yarnpkg.com/@web-std/blob/-/blob-3.0.5.tgz#391e652dd3cc370dbb32c828368a3022b4d55c9c"

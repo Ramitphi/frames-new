@@ -12,6 +12,5 @@ export const getWorldCloud = async (casts) => {
     options
   );
 
-  // console.log(data.data);
   return data?.data;
 };

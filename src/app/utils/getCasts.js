@@ -21,6 +21,5 @@ export const getCasts = async (fid) => {
     casts = casts + " " + data?.data.casts[i]?.text;
   }
 
-  console.log({ casts });
   return casts;
 };

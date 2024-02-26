@@ -16,6 +16,7 @@
     "@resvg/resvg-js": "2.2.0",
     "@unlock-protocol/contracts": "^0.0.22",
     "@unlock-protocol/unlock-js": "^0.43.2",
+    "@upstash/redis": "^1.28.4",
     "convert-svg-to-png": "^0.6.4",
     "d3": "^7.8.5",
     "ethers": "v5",
