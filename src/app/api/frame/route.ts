@@ -28,9 +28,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   });
 
   if (isValid) {
-    // accountAddress = message.interactor.verified_accounts[0];
-    // console.log({ accountAddress });
-    accountAddress = "0x5E60e43F0A4fc718D8Eb4BAB775EC291e5a5Af5c";
+    accountAddress = message.interactor.verified_accounts[0];
+    console.log({ accountAddress });
 
     const res: { img: string; minted: boolean } | null = await redis.get(
       accountAddress
