@@ -12,7 +12,7 @@ import { getImageUrl } from "../../utils/getImageUrl";
 import { updateMetadata } from "../../utils/updateMetadata";
 import { grantkey } from "../../utils/grantKey";
 
-const NEXT_PUBLIC_URL = "https://6701-103-59-75-143.ngrok-free.app";
+const NEXT_PUBLIC_URL = "https://eb1a-103-59-75-143.ngrok-free.app";
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   let accountAddress: string | undefined = "";
@@ -28,8 +28,9 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   });
 
   if (isValid) {
-    accountAddress = message.interactor.verified_accounts[0];
-    console.log({ accountAddress });
+    // accountAddress = message.interactor.verified_accounts[0];
+    // console.log({ accountAddress });
+    accountAddress = "0x5E60e43F0A4fc718D8Eb4BAB775EC291e5a5Af5c";
 
     const res: { img: string; minted: boolean } | null = await redis.get(
       accountAddress
@@ -80,7 +81,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
           getFrameHtmlResponse({
             buttons: [
               {
-                label: `Mint`,
+                label: "Mint",
               },
             ],
             image: `${res?.img}`,
@@ -101,7 +102,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
         );
       }
     } else {
-      const data = await getCasts(2391);
+      const data = await getCasts(message.interactor.fid);
       console.log({ data });
 
       const res = await getWorldCloud(data);
@@ -115,7 +116,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
         getFrameHtmlResponse({
           buttons: [
             {
-              label: ` Upload image`,
+              label: `Creating word cloud. Wait for  3 sec & Click`,
             },
           ],
           image: `${NEXT_PUBLIC_URL}/wordcloud.png`,

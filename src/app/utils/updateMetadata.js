@@ -5,9 +5,10 @@ import { LocksmithService } from "@unlock-protocol/unlock-js";
 import { http, createWalletClient, createPublicClient } from "viem";
 import { privateKeyToAccount } from "viem/accounts";
 import { base } from "viem/chains";
+import { getTokenId } from "./getTokenId";
 
 export const updateMetadata = async (recipientAddress, img) => {
-  const unlockAddress = "0xa5efd9aba615b8056e2886cfb0c4898b60748cdd";
+  const unlockAddress = "0xaa713b6ba2774708b0bfa2b3d933fb02c3b58896";
   const privateKey = process.env.PVT_KEY;
 
   const client = createPublicClient({
@@ -55,14 +56,18 @@ export const updateMetadata = async (recipientAddress, img) => {
 
     console.log(accessToken);
     // Save the metadata in locksmith
+
+    const tokenId = await getTokenId(recipientAddress);
+    console.log(tokenId);
+    console.log({ tokenId });
     const p = await service.updateKeyMetadata(
       8453,
       unlockAddress,
-      1,
+      tokenId,
       {
         metadata: {
           name: "Word Cloud",
-          description: "Word Cloud based on Casts",
+          description: "Word Cloud based on top 10 Casts",
           image: img,
         }, // Assuming all fields are protected
       },
